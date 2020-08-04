@@ -11,7 +11,7 @@ pipeline {
         
 		stage('CheckOut Source') {
 			steps {
-				checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'MuleRepogithub1', url: 'https://github.com/Ashok2781/Mule_pipeline_demo_app1.git']]])
+				/*checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'MuleRepogithub1', url: 'https://github.com/Ashok2781/Mule_pipeline_demo_app1.git']]])*/
 			}
 			post {
                 success {
@@ -67,7 +67,7 @@ pipeline {
 					sh "git config --global push.default simple"
                     sh "git add pom.xml"
                     sh 'git commit -m "Committing Branch"'
-                    sh "git push --set-upstream origin '${env.BUILD_VERSION}'"
+                    //sh "git push --set-upstream origin '${env.BUILD_VERSION}'"
                     echo "Build Successful...branch ${env.BUILD_VERSION} committed"
                 } 
             }

@@ -95,7 +95,7 @@ pipeline {
         
         stage('Deploy to Development') {
             steps {
-                script {
+                /*script {
                     echo "Starting Deploy to Development"
                         
                     applicationName = readMavenPom().getArtifactId()
@@ -125,9 +125,9 @@ pipeline {
                     echo "cloudhubEnvSecretID=${cloudhubEnvSecretID}"
                         
                     echo "Deploy to Development: ${currentBuild.currentResult}"
-                }
+                }*/
                 
-                configFileProvider([configFile(fileId: 'fa7cc012-67aa-4ebb-8ee1-e6528128c306', targetLocation: 'settings.xml', variable: 'MAVEN_SETTINGS_XML')]) {
+               /* configFileProvider([configFile(fileId: 'fa7cc012-67aa-4ebb-8ee1-e6528128c306', targetLocation: 'settings.xml', variable: 'MAVEN_SETTINGS_XML')]) {
                     // Run the maven build
                     sh """ mvn -U --batch-mode -s $MAVEN_SETTINGS_XML \
                         -Dmule.version=${anypointMuleVersion}  \
@@ -142,7 +142,8 @@ pipeline {
                         -Dcloudhub.env.client_id=${cloudhubEnvClientID} \
                         -Dcloudhub.env.client_secret=${cloudhubEnvSecretID} \
                         clean install mule:deploy -P cloudhub """
-                }
+                }*/
+				sh """mvn clean package -DskipTests deploy -DmuleDeploy -Dusername=342607 -Dpassword=Anirudhan@1 -Denvironment=Production -DbusinessGroup=CIS -DworkerType=MICRO -Dworkers=1"""
             }
             post {
                 success {

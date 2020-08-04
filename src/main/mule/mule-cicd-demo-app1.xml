@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="6e8c4806-165f-46a3-af67-53cb314a8240" >
+		<http:listener-connection host="0.0.0.0" port="${http.port}" />
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="f48e7f39-66dc-47e0-bf2b-21ff2bb36728" file="config.yaml" />
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="64808d0e-bdc7-4aaf-8d56-5254485ad806" enableCookies="false" />
+	<flow name="mule-cicd-demo-app1Flow" doc:id="6f2b61b7-58db-470d-b3ea-1bbf617864d0" >
+		<http:listener doc:name="Listener" doc:id="7070c642-c31c-45a8-ab93-20d9a2d078ce" config-ref="HTTP_Listener_config" path="/*"/>
+		<logger level="INFO" doc:name="Logger" doc:id="bd216dc3-bf7d-4e7c-a87c-47eef04b035d" />
+	</flow>
+</mule>

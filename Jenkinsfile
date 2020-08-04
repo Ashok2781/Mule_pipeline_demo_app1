@@ -50,6 +50,7 @@ pipeline {
                 script {
                     echo "Starting Push Release Branch..."
                     // Success
+					sh "git config --global push.default simple"
                     sh "git add pom.xml"
                     sh 'git commit -m "Committing Branch"'
                     sh "git push --set-upstream '${env.BUILD_VERSION}'"

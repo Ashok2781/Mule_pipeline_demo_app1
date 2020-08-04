@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        BUILD_VERSION = "v${currentBuild.number}.RELEASE"
+        BUILD_VERSION = "v${currentBuild.number}"
     }
     tools {
         maven 'Maven_3.6.3'

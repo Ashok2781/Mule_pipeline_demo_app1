@@ -4,7 +4,7 @@ pipeline {
         BUILD_VERSION = "v${currentBuild.number}.RELEASE"
     }
     tools {
-        maven 'M3'
+        maven 'Maven_3.6.3'
     } 
     stages{
         

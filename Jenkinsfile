@@ -74,7 +74,7 @@ pipeline {
                 script {
                     echo "Starting Deploy Artifact..."
                     configFileProvider([configFile(fileId: 'fa7cc012-67aa-4ebb-8ee1-e6528128c306', targetLocation: 'settings.xml', variable: 'MAVEN_SETTINGS_XML')]) {
-                        sh 'mvn -U --batch-mode -s $MAVEN_SETTINGS_XML clean package install deploy'
+                        sh 'mvn -U --batch-mode -s $MAVEN_SETTINGS_XML clean package install'
                     }
                     echo "Artifact Deployed: ${currentBuild.currentResult}"
                 }

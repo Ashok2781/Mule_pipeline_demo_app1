@@ -10,7 +10,7 @@ pipeline {
     stages{
         
 		stage('CheckOut Source') {
-			step {
+			steps {
 				checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'MuleRepogithub1', url: 'https://github.com/Ashok2781/Mule_pipeline_demo_app1.git']]])
 			}
 			post {
